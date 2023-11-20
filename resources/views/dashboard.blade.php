@@ -54,7 +54,7 @@
                             <th>ردیف</th>
                         </tr>
                         </thead>
-                        @php $users = \App\Models\User::find(4) @endphp
+                        @php $users = \App\Models\User::find(2) @endphp
                         <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                         @foreach($users->getJobs->take(15)->sortDesc() as $user)
                             <tbody>
@@ -76,7 +76,7 @@
                             <th>ردیف</th>
                         </tr>
                         </thead>
-                        @php $users = \App\Models\User::find(5) @endphp
+                        @php $users = \App\Models\User::find(3) @endphp
                         <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                         @foreach($users->getJobs->take(15)->sortDesc() as $user)
                             <tbody>
@@ -98,7 +98,7 @@
                             <th>ردیف</th>
                         </tr>
                         </thead>
-                        @php $users = \App\Models\User::findOrFail(6) @endphp
+                        @php $users = \App\Models\User::findOrFail(1) @endphp
                         <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                         @foreach($users->getJobs->take(15)->sortDesc() as $user)
                             <tbody>
@@ -124,7 +124,7 @@
                             <th>ردیف</th>
                         </tr>
                         </thead>
-                        @php $users = \App\Models\User::find(7) @endphp
+                        @php $users = \App\Models\User::find(2) @endphp
                         <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                         @foreach($users->getJobs->take(15)->sortDesc() as $user)
                             <tbody>
@@ -146,7 +146,7 @@
                             <th>ردیف</th>
                         </tr>
                         </thead>
-                        @php $users = \App\Models\User::find(8) @endphp
+                        @php $users = \App\Models\User::find(3) @endphp
                         <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                         @foreach($users->getJobs->take(15)->sortDesc() as $user)
                             <tbody>
@@ -168,7 +168,7 @@
                             <th>ردیف</th>
                         </tr>
                         </thead>
-                        @php $users = \App\Models\User::find(9) @endphp
+                        @php $users = \App\Models\User::find(1) @endphp
                         <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                         @foreach($users->getJobs->take(15)->sortDesc() as $user)
                             <tbody>
@@ -190,7 +190,7 @@
                             <th>ردیف</th>
                         </tr>
                         </thead>
-                        @php $users = \App\Models\User::findOrFail(10) @endphp
+                        @php $users = \App\Models\User::findOrFail(2) @endphp
                         <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                         @foreach($users->getJobs->take(15)->sortDesc() as $user)
                             <tbody>
@@ -218,7 +218,7 @@
                                 <th>ردیف</th>
                             </tr>
                             </thead>
-                            @php $users = \App\Models\User::find(11) @endphp
+                            @php $users = \App\Models\User::find(1) @endphp
                             <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                             @foreach($users->getJobs->take(15)->sortDesc() as $user)
                                 <tbody>
@@ -240,7 +240,7 @@
                                 <th>ردیف</th>
                             </tr>
                             </thead>
-                            @php $users = \App\Models\User::find(12) @endphp
+                            @php $users = \App\Models\User::find(2) @endphp
                             <h2 style="text-align: right;font-size: 30px;font-weight: bolder">{{ $users->name }}</h2>
                             @foreach($users->getJobs->take(15)->sortDesc() as $user)
                                 <tbody>
@@ -255,10 +255,10 @@
                         </table>
                     </div>
                     <div class="col p-6">
-                        
+
                     </div>
                     <div class="p-6 col">
-                    
+
                     </div>
                 </div>
             </div>
@@ -320,7 +320,7 @@
                             <tr>
                                 @php
                                 $me = \Illuminate\Support\Facades\Auth::user()->id;
-                                $getjobs = \App\Models\Job::where('user_id', $me)->paginate(5);
+                                $getjobs = \App\Models\Job::where('user_id', $me)->orderBy('id', 'DESC')->paginate(25);
                                 @endphp
                                 @foreach($getjobs as $job)
                                     <td>{{ $job->description }}</td>
